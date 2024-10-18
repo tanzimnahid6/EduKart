@@ -5,6 +5,10 @@ const courseSchema = new Schema({
     required: true,
     type: String,
   },
+  subtitle: {
+    required: true,
+    type: String,
+  },
   description: {
     required: true,
     type: String,
@@ -13,12 +17,7 @@ const courseSchema = new Schema({
     required: true,
     type: String,
   },
-  modules: [
-    {
-      type: Schema.ObjectId,
-      ref: "Module",
-    },
-  ],
+  modules: [{ type: Schema.ObjectId, ref: "Module" }],
 
   price: {
     required: true,
@@ -28,26 +27,29 @@ const courseSchema = new Schema({
     required: true,
     type: Boolean,
   },
-  category: {
-    type: Schema.ObjectId,
-    ref: "Category",
-  },
-  instructor: {
-    type: Schema.ObjectId,
-    ref: "User",
+
+  category: { type: Schema.ObjectId, ref: "Category" },
+
+  instructor: { type: Schema.ObjectId, ref: "User" },
+
+  quizSet: { type: Schema.ObjectId, ref: "Quizset" },
+
+  testimonials: [{ type: Schema.ObjectId, ref: "Testimonial"}],
+
+  learning: {
+    required: true,
+    type: [String],
   },
 
-  quizzes: {
-    required: false,
-    type: Schema.ObjectId,
+  createdOn: {
+    required: true,
+    type: Date,
   },
 
-  testimonials: [
-    {
-      type: Schema.ObjectId,
-      ref: "Testimonial",
-    },
-  ],
+  modifiedOn: {
+    required: true,
+    type: Date,
+  },
 });
 
 export const Course =
