@@ -7,9 +7,6 @@ export const CourseInstructor = async ({ course }) => {
   const courseDetailsByInstructor = await getCourseDetailsByInstructor(
     course?.instructor?._id.toString()
   );
-console.log(courseDetailsByInstructor);
-
-
 
   return (
     <>

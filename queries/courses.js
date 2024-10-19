@@ -99,7 +99,7 @@ export const getCourseDetailsByInstructor = async (instructorId) => {
     totalTestimonials.reduce((prevItem, currentItem) => {
       return prevItem + currentItem.rating;
     }, 0) / totalTestimonials.length;
-  console.log(totalTestimonials);
+
 
   return {
     courses: courses.length,

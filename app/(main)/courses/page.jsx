@@ -17,7 +17,7 @@ import { getCourses } from "@/queries/courses";
 
 const CoursesPage = async () => {
   const courses = await getCourses();
-  console.log(courses);
+
   
   return (
     <section

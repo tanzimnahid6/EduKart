@@ -34,7 +34,7 @@ export const Testimonials = ({ testimonials }) => {
                 <div className="sm:break-inside-avoid">
                   <blockquote className="rounded-lg bg-gray-50 p-6  sm:p-8 shadow-sm">
                     <div className="flex items-center gap-4">
-                      <img
+                      <Image
                         alt="profil"
                         src={testimonial?.user?.profile_picture}
                         width="56"

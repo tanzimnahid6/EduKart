@@ -7,7 +7,7 @@ export function StarRating({ rating }) {
     <>
       {stars.map((star, index) => (
         // eslint-disable-next-line jsx-a11y/alt-text
-        <Image key={index} src={`/assets/star.svg`} width={20} height={20} />
+        <Image key={index} src={`/assets/star.svg`} width={20} height={20} alt={"star"} />
       ))}
     </>
   );
