@@ -2,24 +2,24 @@ import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { User } from "./model/user-model";
 import bcrypt from "bcrypt";
+import { authConfig } from "./auth.config";
+
 export const {
   handlers: { GET, POST },
   auth,
   signIn,
   signOut,
 } = NextAuth({
-  session: {
-    strategy: "jwt",
-  },
+  ...authConfig,
+  trustedHosts: ["localhost:3000", "http://localhost:3000/api/auth/session"],
   providers: [
     CredentialsProvider({
       async authorize(credentials) {
         if (credentials == null) return null;
         try {
           const user = await User.findOne({ email: credentials?.email });
-          console.log(user);
           if (user) {
-            const isMatch = await bcrypt.compare(
+            const isMatch = bcrypt.compare(
               credentials?.password,
               user?.password
             );

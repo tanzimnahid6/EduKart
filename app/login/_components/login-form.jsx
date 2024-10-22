@@ -27,7 +27,6 @@ export function LoginForm() {
       const formData = new FormData(event.currentTarget);
       const res = await credentialLogin(formData);
       if (!!res.error) {
-       
         setError(res.error);
       } else {
         router.push("/courses");
